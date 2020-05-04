@@ -1,0 +1,18 @@
+variable "clustername" {}
+variable "count" {}
+cluster "packet" {
+  asset_dir = "got asset_dir"
+  cluster_name = var.clustername
+  cluster_domain_suffix = "test.local"
+  node_private_cidr = "private-cidr"
+  os_arch = "amd64"
+  os_channel = "cartoon-network"
+#  network_mtu = 1480
+  auth_token = "test-token"
+  facility = "india"
+
+  worker_pool "pool1" {
+    count = var.count
+    os_version = "latest"
+  }
+}
